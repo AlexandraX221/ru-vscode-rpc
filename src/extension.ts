@@ -12,7 +12,7 @@ let timestamp: number;
 export function activate(context: vscode.ExtensionContext) {
     console.log('Расширение Включено!');
     timestamp = new Date().getTime();
-    let cmdActivate = vscode.commands.registerCommand('extension.activateRich', () => {
+    let cmdActivate = vscode.commands.registerCommand('StartRich', () => {
         
         vscode.window.showInformationMessage('Статус Активен!');
         console.log("Инициализация RPC...");
@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
         });
     });
 
-    let cmdDisable = vscode.commands.registerCommand('extension.disableRich', async () => {
+    let cmdDisable = vscode.commands.registerCommand('StopRich', async () => {
         if (!rpc) return; 
         await rpc.destroy();
         vscode.window.showInformationMessage('Статус Выключен!');
